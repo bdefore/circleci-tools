@@ -25,7 +25,7 @@ commands:
       - run:
           name: Trigger project build via CircleCI API
           command: |
-            curl -u << paramters.token >>: \
+            curl -u << parameters.token >>: \
               -X POST --header "Content-Type: application/json" \
               -d '{"branch": "<< parameters.branch >>}' \
               https://circleci.com/api/v1.1/project/<< parameters.vcs >>/<< parameters.organization >>/<< parameters.project >>/build
