@@ -1,0 +1,17 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2.1
+
+orbs:
+  orb-tools: circleci/orb-tools@2.0.0
+
+workflows:
+  tools:
+    jobs:
+      - orb-tools/publish:
+          orb-path: src/orb.yml
+          orb-ref: bdefore/circleci-toolsd@dev:${CIRCLE_BRANCH}
+          publish-token-variable: $CIRCLE_TOKEN
+          validate: true

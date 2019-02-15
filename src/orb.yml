@@ -1,0 +1,31 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2.1
+description: CI Tools
+
+commands:
+  trigger_project:
+    # https://circleci.com/docs/api/v1-reference/#new-project-build
+    description: Initiate project build corresponding to this branch
+    parameters:
+      token:
+        type: string
+      organization:
+        type: string
+      vcs:
+        default: github
+        type: string
+      project:
+        type: string
+      branch:
+        type: string
+    steps:
+      - run:
+          name: Trigger project build via CircleCI API
+          command: |
+            curl -u << paramters.token >>: \
+              -X POST --header "Content-Type: application/json" \
+              -d '{"branch": "'$CIRCLE_BRANCH'"}' \
+              https://circleci.com/api/v1.1/project/<< parameters.vcs >>/<< parameters.organization >>/<< parameters.project >>/build
