@@ -27,5 +27,5 @@ commands:
           command: |
             curl -u << paramters.token >>: \
               -X POST --header "Content-Type: application/json" \
-              -d '{"branch": "'$CIRCLE_BRANCH'"}' \
+              -d '{"branch": "<< parameters.branch >>}' \
               https://circleci.com/api/v1.1/project/<< parameters.vcs >>/<< parameters.organization >>/<< parameters.project >>/build
