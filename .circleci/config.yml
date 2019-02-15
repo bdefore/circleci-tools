@@ -12,6 +12,6 @@ workflows:
     jobs:
       - orb-tools/publish:
           orb-path: src/orb.yml
-          orb-ref: bdefore/circleci-tools@dev:${CIRCLE_BRANCH}
+          orb-ref: bdefore/circleci-tools@dev:${CIRCLE_BRANCH}1
           publish-token-variable: "$CIRCLE_TOKEN"
           validate: true
